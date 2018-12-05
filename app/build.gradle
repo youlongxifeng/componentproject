@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion build_versions.target_sdk
     defaultConfig {
-        applicationId "com.guiying.module"
+        applicationId "com.component.project.youlong"
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk
         versionCode 1
@@ -37,6 +37,7 @@ dependencies {
     implementation project(':componentmodules:module_common')
     if (!isModule.toBoolean()) {
         implementation project(':componentmodules:module_main')
+        implementation project(':componentmodules:module_login')
        // implementation project(':module_girls')
         //implementation project(':module_news')
        // implementation project(':module_boy')

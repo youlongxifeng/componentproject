@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/componentmodules" />
             <option value="$PROJECT_DIR$/componentmodules/module_common" />
+            <option value="$PROJECT_DIR$/componentmodules/module_login" />
             <option value="$PROJECT_DIR$/componentmodules/module_main" />
             <option value="$PROJECT_DIR$/thirdpartyibraries" />
             <option value="$PROJECT_DIR$/thirdpartyibraries/recyclerviewadapterlibrary" />

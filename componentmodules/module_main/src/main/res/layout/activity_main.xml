@@ -5,15 +5,13 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <TextView android:layout_width="match_parent"
-              android:text="@string/app_name"
-              android:gravity="center"
-              android:id="@+id/my_text"
-              android:layout_height="wrap_content"/>
+    <TextView
+            android:id="@+id/tx_login"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="登录"
+            android:gravity="center"
+    />
 
-    <com.component.preject.youlong.main.CustomView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    ></com.component.preject.youlong.main.CustomView>
 
 </LinearLayout>

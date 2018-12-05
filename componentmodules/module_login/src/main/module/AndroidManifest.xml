@@ -1,0 +1,18 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.component.preject.youlong.login">
+    <application android:theme="@style/AppTheme"
+                 android:name="debug.LoginApplication"
+    >
+        <activity android:name="com.component.preject.youlong.login.ui.activity.login.LogInActivity"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:screenOrientation="portrait"
+                  android:windowSoftInputMode="adjustUnspecified|stateHidden"
+        >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

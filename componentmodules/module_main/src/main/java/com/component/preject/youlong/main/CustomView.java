@@ -17,14 +17,13 @@ public class CustomView extends View {
         super(context);
     }
 
-    public CustomView(Context context,   AttributeSet attrs) {
+    public CustomView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public CustomView(Context context,  AttributeSet attrs, int defStyleAttr) {
+    public CustomView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
-
 
 
     @Override
@@ -51,8 +50,5 @@ public class CustomView extends View {
         paint2.setColor(Color.BLUE);
         paint2.setTextSize(80);
         canvas.drawText("jEh", 80, 1400, paint2);
-
-
-
     }
 }

@@ -1,6 +1,8 @@
 include ':app'
-include 'componentmodules:module_main'
+
 include 'componentmodules:module_common'
+include 'componentmodules:module_main'
+include 'componentmodules:module_login'
 
 include 'thirdpartyibraries:recyclerviewadapterlibrary'
 
