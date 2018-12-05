@@ -1,0 +1,7 @@
+include ':app'
+include 'componentmodules:module_main'
+include 'componentmodules:module_common'
+
+include 'thirdpartyibraries:recyclerviewadapterlibrary'
+
+include 'thirdpartyibraries:stateswitch'
