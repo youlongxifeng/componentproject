@@ -27,4 +27,10 @@
             keyAlias 'youlongxifeng'
             keyPassword 'youlongxifeng'//将这里的“**”替换成自己的信息
         }
+附加：查看jks文件的指纹证书MD5值：
 
+打开命令面板：win+R
+
+进入到你的.android目录，一般在C盘，我的在C:\Users\Administrator\.android。
+
+输入以下命令：keytool -v -list -keystore .jks所在的路径

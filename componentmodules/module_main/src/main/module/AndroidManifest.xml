@@ -3,7 +3,7 @@
     <application android:theme="@style/AppTheme"
     android:name="debug.MainApplication"
     >
-        <activity android:name="com.component.preject.youlong.main.MainActivity">
+        <activity android:name="com.component.preject.youlong.main.ui.activity.home.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

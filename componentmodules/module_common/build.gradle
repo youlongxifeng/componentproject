@@ -42,6 +42,8 @@ dependencies {
     // RxJava and retrofit
     api deps.rx_android
     api deps.rxjava2
+    api deps.retrofit2_rxjava2_adapter
+    //api 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
     api deps.retrofit.runtime
     api deps.retrofit.gson
     api deps.persistent_cookie
@@ -83,4 +85,9 @@ dependencies {
     api project(':thirdpartyibraries:recyclerviewadapterlibrary')
     //网络加载状态
     api project(':thirdpartyibraries:stateswitch')
+    //第三方fragment
+    api project(':thirdpartyibraries:fragmentation')
+    api project(':thirdpartyibraries:fragmentation_swipeback')
+    api project(':thirdpartyibraries:eventbus_activity_scope')
+    //api project(':thirdpartyibraries:fragmentation_core')
 }

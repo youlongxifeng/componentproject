@@ -7,3 +7,7 @@ include 'componentmodules:module_login'
 include 'thirdpartyibraries:recyclerviewadapterlibrary'
 
 include 'thirdpartyibraries:stateswitch'
+include 'thirdpartyibraries:fragmentation_core'
+include 'thirdpartyibraries:fragmentation_swipeback'
+include 'thirdpartyibraries:fragmentation'
+include 'thirdpartyibraries:eventbus_activity_scope'
