@@ -3,7 +3,7 @@
     <application android:theme="@style/AppTheme"
                  android:name="debug.LoginApplication"
     >
-        <activity android:name="com.component.preject.youlong.login.ui.activity.login.LogInActivity"
+        <activity android:name="com.component.preject.youlong.login.ui.activity.login.ui.acitivity.login.LogInActivity"
                   android:configChanges="orientation|keyboardHidden"
                   android:screenOrientation="portrait"
                   android:windowSoftInputMode="adjustUnspecified|stateHidden"
@@ -14,5 +14,23 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".ui.activity.login.ui.acitivity.register.RegisterActivity"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:screenOrientation="portrait"
+                  android:windowSoftInputMode="adjustUnspecified|stateHidden"
+        ></activity>
+        <activity android:name=".ui.activity.login.ui.acitivity.register.RegisterActivity"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:screenOrientation="portrait"
+                  android:windowSoftInputMode="adjustUnspecified|stateHidden"
+        ></activity>
+        <activity android:name=".ui.activity.login.ui.acitivity.retrieve.RetrieveActivity"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:screenOrientation="portrait"
+                  android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity android:name=".ui.activity.login.ui.acitivity.resetpwd.ResetPwdActivity"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:screenOrientation="portrait"
+                  android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
     </application>
 </manifest>
