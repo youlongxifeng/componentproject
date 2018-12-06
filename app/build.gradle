@@ -16,6 +16,23 @@ android {
         //打包时间
       //  resValue "string", "build_time", buildTime()
     }
+
+    signingConfigs {
+        release {
+            storeFile file('../keystore/youlong.jks')
+            storePassword 'youlongxifeng'
+            keyAlias 'youlongxifeng'
+            keyPassword 'youlongxifeng'//将这里的“**”替换成自己的信息
+        }
+
+        debug {
+            storeFile file('../keystore/youlong.jks')
+            storePassword 'youlongxifeng'
+            keyAlias 'youlongxifeng'
+            keyPassword 'youlongxifeng'//将这里的“**”替换成自己的信息
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

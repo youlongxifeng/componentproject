@@ -1,0 +1,30 @@
+输入密钥库口令:
+密钥库类型: jks
+密钥库提供方: SUN
+
+您的密钥库包含 1 个条目
+
+别名: youlongxifeng
+创建日期: 2018-12-6
+条目类型: PrivateKeyEntry
+证书链长度: 1
+证书[1]:
+所有者: CN=无组织无纪律, OU=无组织无纪律, O=无组织无纪律, L=深圳, ST=广东, C=cn
+发布者: CN=无组织无纪律, OU=无组织无纪律, O=无组织无纪律, L=深圳, ST=广东, C=cn
+序列号: 39bcbc0b
+有效期为 Thu Dec 06 11:14:21 CST 2018 至 Mon Nov 30 11:14:21 CST 2043
+证书指纹:
+         MD5:  D7:53:57:7E:89:7B:7C:83:13:FA:A6:EB:77:B8:20:3C
+         SHA1: 3E:DB:BF:41:FB:AE:C0:93:13:96:DB:1F:10:70:39:33:D5:BF:0F:E9
+         SHA256: D1:AF:A0:0A:9A:68:9C:52:ED:D5:54:C5:FF:C0:C8:5A:79:6E:B3:61:F7:F5:1A:57:11:82:17:27:B0:A4:B7:22
+签名算法名称: SHA256withRSA
+主体公共密钥算法: 2048 位 RSA 密钥
+版本: 3
+
+ release {
+            storeFile file('../keystore/youlong.jks')
+            storePassword 'youlongxifeng'
+            keyAlias 'youlongxifeng'
+            keyPassword 'youlongxifeng'//将这里的“**”替换成自己的信息
+        }
+
