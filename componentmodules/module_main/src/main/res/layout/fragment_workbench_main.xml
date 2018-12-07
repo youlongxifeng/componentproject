@@ -33,6 +33,7 @@
                 android:layout_width="match_parent"
                 app:tabIndicatorColor="@android:color/white"
                 app:tabSelectedTextColor="@android:color/white"
+                app:tabIndicatorHeight="4dp"
                 app:tabTextColor="#EF9A9A"
                 app:tabGravity="fill"
                 app:tabTextAppearance="@style/tab_appearance"

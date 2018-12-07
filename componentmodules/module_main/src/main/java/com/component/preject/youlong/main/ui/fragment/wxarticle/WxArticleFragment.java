@@ -62,6 +62,7 @@ public class WxArticleFragment extends BaseMvpFragment<WxArticlePresenter> imple
         mTab = view.findViewById(R.id.tab);
         mTab.setTabMode(TabLayout.MODE_SCROLLABLE);
         mViewPager = view.findViewById(R.id.vp_wx);
+        initStateLayout();
 
     }
     private void initStateLayout() {
