@@ -10,10 +10,10 @@ import io.reactivex.disposables.Disposable;
  * @description: （添加一句描述）
  */
 
-public class BasePresenter<V extends BaseView> {
+public class BasePresenter<V extends BaseView,M extends BaseModel> {
 
     protected V mView;
-  //  protected M mModel;
+     protected M mModel;
 
 
     public void attachView(BaseView view) {

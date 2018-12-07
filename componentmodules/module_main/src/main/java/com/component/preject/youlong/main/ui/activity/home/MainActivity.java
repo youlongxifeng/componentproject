@@ -1,26 +1,18 @@
 package com.component.preject.youlong.main.ui.activity.home;
 
 import android.Manifest;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
-import butterknife.ButterKnife;
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.component.preject.youlong.base.mvp.BasePresenter;
 import com.component.preject.youlong.base.mvp.activity.BaseMvpActivity;
-import com.component.preject.youlong.base.mvp.fragment.BaseMvpFragment;
-import com.component.preject.youlong.common.RouteConfig;
 import com.component.preject.youlong.main.R;
 import com.component.preject.youlong.main.event.TabSelectedEvent;
 import com.component.preject.youlong.main.ui.fragment.base.*;
 import com.component.preject.youlong.main.ui.fragment.home.HomeFragment;
 import com.component.preject.youlong.main.ui.fragment.my.MyFragment;
 import com.component.preject.youlong.main.ui.fragment.todo.ToDoFragment;
-import com.component.preject.youlong.main.ui.fragment.workbench.WorkbenchFragment;
+import com.component.preject.youlong.main.ui.fragment.wxarticle.WxArticleFragment;
 import com.component.preject.youlong.main.widget.bottombar.BottomBar;
 import com.component.preject.youlong.main.widget.bottombar.BottomBarTab;
 import com.component.preject.youlong.manage.permissions.PermissionsManager;
@@ -32,7 +24,7 @@ import me.yokeyword.fragmentation.SupportFragment;
 /**
  * @Author: xiezhenggen
  * @Time: 2018 2018/12/4 14:55
- * @description: （添加一句描述）
+ * @description: （应用主页）
  */
 public class MainActivity extends BaseMvpActivity implements BaseMainFragment.OnBackToFirstListener, View.OnClickListener {
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -67,7 +59,6 @@ public class MainActivity extends BaseMvpActivity implements BaseMainFragment.On
         initFragmeng();
         initBottomBar();
     }
-
     /**
      * 初始化fragment
      */
@@ -179,7 +170,7 @@ public class MainActivity extends BaseMvpActivity implements BaseMainFragment.On
                 } else if (currentFragment instanceof SecondFragment) {
                     currentFragment.popToChild(ToDoFragment.class, false);
                 } else if (currentFragment instanceof ThirdFragment) {
-                    currentFragment.popToChild(WorkbenchFragment.class, false);
+                    currentFragment.popToChild(WxArticleFragment.class, false);
                 } else if (currentFragment instanceof FourthFragment) {
                     currentFragment.popToChild(MyFragment.class, false);
                 }

@@ -1,3 +1,9 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools"
+           tools:ignore="MissingTranslation">
     <string name="app_name">module_main</string>
+    <string name="location_pls">后台定位信息有误，请核实数据！</string>
+    <string name="data_empty">暂无数据!~</string>
+    <string name="statue_refresh">刷新</string>
+    <string name="statue_open_settings">打开设置</string>
+    <string name="statue_loading">加载中!~~~</string>
 </resources>

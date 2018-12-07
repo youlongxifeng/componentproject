@@ -19,7 +19,7 @@ public interface LogInContract {
 
     }
 
-    abstract class Presenter extends BasePresenter<View> {
+    abstract class Presenter extends BasePresenter<View,Model> {
 
     }
 }

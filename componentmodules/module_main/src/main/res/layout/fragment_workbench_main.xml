@@ -1,11 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
-    <TextView android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:textSize="@dimen/dp_72"
-              android:text="workbench"
-              android:gravity="center"
-    />
-</android.support.constraint.ConstraintLayout>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:custom="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <!--app:tabIndicatorColor=""   指示器颜色
+        app:tabIndicatorHeight=""  指示器高度，设置为0就是没有指示器
+        app:tabTextColor=""    Tab文本默认颜色
+        app:tabSelectedTextColor=""     Tab文本被选中后的颜色
+        app:tabTextAppearance=""      为Tab文本设置样式，一般是需要为Tab加图标时使用
+        app:tabMode=""  只有两个值：fixed、scrollable    fixed用于标题栏少的情况，每个Tab可以平分屏幕宽度    scrollable用于标题栏多出屏幕的情况，如果标题栏少的时候用很难看，占不满屏幕
+        app:tabBackground=""    TabLayout背景，和android:background=""效果一样
+        app:tabGravity=""    对齐方式:  居中显示center、fill填满
+        选项卡宽度限制app:tabMaxWidth=""   最大宽度
+        app:tabMinWidth=""   最小宽度Tab内边距
+        app:tabPaddingStart=""
+        app:tabPaddingBottom=""
+        app:tabPaddingEnd=""
+        app:tabPaddingTop=""
+        app:tabPadding=""
+        -->
+        <android.support.design.widget.TabLayout
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/tab"
+                android:layout_width="match_parent"
+                app:tabIndicatorColor="@android:color/white"
+                app:tabSelectedTextColor="@android:color/white"
+                app:tabTextColor="#EF9A9A"
+                app:tabGravity="fill"
+                app:tabTextAppearance="@style/tab_appearance"
+                android:layout_height="?attr/actionBarSize">
+
+        </android.support.design.widget.TabLayout>
+
+    </android.support.design.widget.AppBarLayout>
+    <!-- app:layout_constraintTop_toBottomOf="@id/app_bar_layout"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"-->
+
+    <com.tuacy.stateswitch.StateLayout
+            android:id="@+id/state_layout_display"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@color/bg_999999"
+            app:state_content_layout="@layout/view_view_pager"/>
+
+
+</FrameLayout>

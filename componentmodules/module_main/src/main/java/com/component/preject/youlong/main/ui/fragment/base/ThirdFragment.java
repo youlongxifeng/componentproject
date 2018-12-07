@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.component.preject.youlong.main.R;
-import com.component.preject.youlong.main.ui.fragment.workbench.WorkbenchFragment;
+import com.component.preject.youlong.main.ui.fragment.wxarticle.WxArticleFragment;
 
 /**
  * @Author: xiezhenggen
@@ -34,9 +34,9 @@ public class ThirdFragment extends BaseMainFragment {
     @Override
     public void onLazyInitView(@Nullable Bundle savedInstanceState) {
         super.onLazyInitView(savedInstanceState);
-        if (findChildFragment(WorkbenchFragment.class) == null) {
+        if (findChildFragment(WxArticleFragment.class) == null) {
             // ShopFragment是flow包里的
-            loadRootFragment(R.id.fl_base_container, WorkbenchFragment.newInstance());
+            loadRootFragment(R.id.fl_base_container, WxArticleFragment.newInstance());
         }
     }
 }

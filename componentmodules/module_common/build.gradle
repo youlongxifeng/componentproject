@@ -90,4 +90,7 @@ dependencies {
     api project(':thirdpartyibraries:fragmentation_swipeback')
     api project(':thirdpartyibraries:eventbus_activity_scope')
     //api project(':thirdpartyibraries:fragmentation_core')
+
+    //加载状态
+    api project(':thirdpartyibraries:stateswitch')
 }
