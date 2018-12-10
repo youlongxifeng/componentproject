@@ -7,6 +7,12 @@ android {
         targetSdkVersion build_versions.target_sdk
         versionCode 1
         versionName "1.0"
+
+        javaCompileOptions {//Java编译配置参数
+            annotationProcessorOptions {
+                arguments = [eventBusIndex: 'com.component.preject.youlong.MyEventBusIndex']
+            }
+        }
     }
 
 
@@ -25,6 +31,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
 }
 
 dependencies {
@@ -51,7 +59,7 @@ dependencies {
     //butterknife
     api deps.butterknifes.butterknife
     annotationProcessor deps.butterknifes.butterknife_compiler
-   // api 'com.jakewharton:butterknife:8.8.1'
+    // api 'com.jakewharton:butterknife:8.8.1'
     //annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
     //Dagger
@@ -62,7 +70,7 @@ dependencies {
     // other
     api deps.kotlin.stdlib
     api deps.event_bus
-    annotationProcessor "org.greenrobot:eventbus-annotation-processor:latest.release"
+
     api deps.gson
     api deps.permission
     api deps.utils
@@ -77,6 +85,8 @@ dependencies {
 
     //router
     api deps.arouter_api
+
+
 
     //annotationProcessor
     annotationProcessor deps.dagger.android_support_compiler

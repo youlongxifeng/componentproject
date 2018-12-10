@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'org.greenrobot.greendao'
+
 android {
     compileSdkVersion build_versions.target_sdk
     defaultConfig {
@@ -15,6 +17,7 @@ android {
         multiDexEnabled true
         //打包时间
       //  resValue "string", "build_time", buildTime()
+
     }
 
     signingConfigs {
@@ -43,6 +46,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    /**
+     * 配置greendao3.1 配置数据库相关信息
+     */
+    greendao {
+        schemaVersion 2 //数据库版本号
+        daoPackage 'com.component.project.youlong.bean'
+        targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao 包名
+    }
 }
 
 dependencies {
@@ -52,6 +64,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation project(':componentmodules:module_common')
+    //数据库
+    implementation 'org.greenrobot:greendao:3.2.2'
+    implementation 'org.greenrobot:greendao-generator:3.2.2'
     if (!isModule.toBoolean()) {
         implementation project(':componentmodules:module_main')
         implementation project(':componentmodules:module_login')

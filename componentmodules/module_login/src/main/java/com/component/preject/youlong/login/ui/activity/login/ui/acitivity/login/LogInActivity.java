@@ -6,9 +6,14 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.component.preject.youlong.base.mvp.activity.BaseMvpActivity;
 import com.component.preject.youlong.common.RouteConfig;
+import com.component.preject.youlong.eventbus.SmartEvents;
 import com.component.preject.youlong.login.R;
 import com.component.preject.youlong.login.ui.activity.login.ui.acitivity.register.RegisterActivity;
 import com.component.preject.youlong.login.ui.activity.login.ui.acitivity.retrieve.RetrieveActivity;
+import com.component.preject.youlong.utils.LogUtils;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 /**
  * @Author: xiezhenggen
@@ -53,7 +58,7 @@ public class LogInActivity extends BaseMvpActivity<LogInPresenter> implements Vi
 
     @Override
     public void initDate() {
-
+        SmartEvents.register(this);
     }
 
     @Override
@@ -62,10 +67,21 @@ public class LogInActivity extends BaseMvpActivity<LogInPresenter> implements Vi
         if (i == R.id.bt_login_register) {//注册
             RegisterActivity.show(this);
         } else if (i == R.id.bt_login_submit) {//登录
-
+            SmartEvents.instance().post("ZHANGSAN");
         } else if (i == R.id.tv_login_forget_pwd) {//忘记密码
             RetrieveActivity.show(this);
         }
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        SmartEvents.unregister(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(Object object) {
+        LogUtils.i("TAG","onMessageEvent message============"+object);
     }
 }

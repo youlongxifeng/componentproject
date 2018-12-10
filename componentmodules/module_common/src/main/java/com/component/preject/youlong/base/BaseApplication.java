@@ -2,6 +2,7 @@ package com.component.preject.youlong.base;
 
 import android.app.Application;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.component.preject.youlong.eventbus.SmartEvents;
 import com.component.preject.youlong.utils.LogUtils;
 import com.component.preject.youlong.utils.Utils;
 
@@ -11,6 +12,7 @@ import com.component.preject.youlong.utils.Utils;
  * @description: （添加一句描述）
  */
 public class BaseApplication extends Application {
+    private final static String TAG=BaseApplication.class.getSimpleName();
     private static BaseApplication mContext;
 
     @Override
@@ -28,9 +30,16 @@ public class BaseApplication extends Application {
         }
         // 尽可能早，推荐在Application中初始化
         ARouter.init(this);
+
+
+
+
     }
 
     public static BaseApplication getContext() {
         return mContext;
     }
+
+
+
 }
