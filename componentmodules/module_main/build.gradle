@@ -4,6 +4,7 @@ if (isModule.toBoolean()) {
     apply plugin: 'com.android.library'
 }
 apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'org.greenrobot.greendao'
 android {
     compileSdkVersion build_versions.target_sdk
     defaultConfig {
@@ -42,10 +43,23 @@ android {
         }
     }
 
+    /**
+     * 配置greendao3.1 配置数据库相关信息
+     */
+    greendao {
+        schemaVersion 2 //数据库版本号
+        daoPackage 'com.component.project.youlong.bean'
+        targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao 包名
+    }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     annotationProcessor deps.arouter_compiler
     implementation project(':componentmodules:module_common')
+    implementation deps.butterknifes.butterknife
+    annotationProcessor deps.butterknifes.butterknife_compiler
+    implementation 'org.greenrobot:greendao:3.2.2'
+    implementation 'org.greenrobot:greendao-generator:3.2.2'
 }

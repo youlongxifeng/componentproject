@@ -6,8 +6,12 @@ import android.provider.Settings;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import com.component.preject.youlong.base.mvp.fragment.BaseMvpFragment;
 import com.component.preject.youlong.main.R;
+import com.component.preject.youlong.main.R2;
 import com.component.preject.youlong.main.bean.WxArticleBean;
 import com.component.preject.youlong.main.ui.fragment.wxarticle.adapter.PagerFragmentAdapter;
 import com.component.preject.youlong.main.view.dataview.CustomerEmptyView;
@@ -22,9 +26,6 @@ import com.tuacy.stateswitch.StateNoNetworkInterface;
 
 import java.util.List;
 
-import static com.tuacy.stateswitch.StateLayout.State.CONTENT;
-import static com.tuacy.stateswitch.StateLayout.State.ERROR;
-import static com.tuacy.stateswitch.StateLayout.State.ING;
 
 /**
  * @Author: xiezhenggen
@@ -33,10 +34,15 @@ import static com.tuacy.stateswitch.StateLayout.State.ING;
  */
 public class WxArticleFragment extends BaseMvpFragment<WxArticlePresenter> implements WxArticleContract.View {
     private static final String TAG = WxArticleFragment.class.getSimpleName();
-    private TabLayout mTab;
-    private ViewPager mViewPager;
+    @BindView(R2.id.tab)
+    TabLayout mTab;
+    @BindView(R2.id.vp_wx)
+    ViewPager mViewPager;
+    @BindView(R2.id.main_state_layout_display)
+    StateLayout mMainStateLayout;
+   // Unbinder mUnbinder;
     private PagerFragmentAdapter pagerFragmentAdapter;
-    private StateLayout mStateLayout;
+
 
     public static WxArticleFragment newInstance() {
         Bundle args = new Bundle();
@@ -57,43 +63,45 @@ public class WxArticleFragment extends BaseMvpFragment<WxArticlePresenter> imple
 
     @Override
     protected void initView(View view) {
-        mStateLayout=view.findViewById(R.id.state_layout_display);
-        mStateLayout.switchState(ING);
-        mTab = view.findViewById(R.id.tab);
+       // mUnbinder = ButterKnife.bind(this, view);
+        // mMainStateLayout = view.findViewById(R.id.state_layout_display);
+        mMainStateLayout.switchState(StateLayout.State.ING);
+        // mTab = view.findViewById(R.id.tab);
         mTab.setTabMode(TabLayout.MODE_SCROLLABLE);
-        mViewPager = view.findViewById(R.id.vp_wx);
+        // mViewPager = view.findViewById(R.id.vp_wx);
         initStateLayout();
 
     }
+
     private void initStateLayout() {
-        mStateLayout.setEmptyStateView(new CustomerEmptyView(getActivity()));
-        mStateLayout.setIngStateView(new CustomerIngView(getActivity()));
-        mStateLayout.setErrorStateView(new CustomerErrorView(getActivity()));
-        mStateLayout.setNoNetworkStateView(new CustomerNoNetWorkView(getActivity()));
-        mStateLayout.setEmptyStateRetryListener(
+        mMainStateLayout.setEmptyStateView(new CustomerEmptyView(getActivity()));
+        mMainStateLayout.setIngStateView(new CustomerIngView(getActivity()));
+        mMainStateLayout.setErrorStateView(new CustomerErrorView(getActivity()));
+        mMainStateLayout.setNoNetworkStateView(new CustomerNoNetWorkView(getActivity()));
+        mMainStateLayout.setEmptyStateRetryListener(
                 new StateEmptyInterface.OnRetryListener() {
                     @Override
                     public void onRetry() {//没数据
-                        mStateLayout.switchState(CONTENT);
+                        mMainStateLayout.switchState(StateLayout.State.CONTENT);
                         // mSmartRefreshLayout.autoRefresh();
 
                     }
                 });
 
-        mStateLayout.setErrorStateRetryListener(
+        mMainStateLayout.setErrorStateRetryListener(
                 new StateErrorInterface.OnRetryListener() {
                     @Override
                     public void onRetry() {//数据加载错误
-                        mStateLayout.switchState(CONTENT);
+                        mMainStateLayout.switchState(StateLayout.State.CONTENT);
                         // mSmartRefreshLayout.autoRefresh();
 
                     }
                 });
-        mStateLayout.setNoNetworkStateRetryListener(
+        mMainStateLayout.setNoNetworkStateRetryListener(
                 new StateNoNetworkInterface.OnRetryListener() {
                     @Override
                     public void onRetry() {//打开网络页面
-                      //  startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS)); //直接进入手机中的wifi网络设置界面
+                        //  startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS)); //直接进入手机中的wifi网络设置界面
                     }
                 }
 
@@ -107,8 +115,8 @@ public class WxArticleFragment extends BaseMvpFragment<WxArticlePresenter> imple
 
     @Override
     public void setLoadingSucceeded(List<WxArticleBean> wxArticleBeanList) {
-        LogUtils.i(TAG,"wxArticleBeanList=="+wxArticleBeanList);
-        mStateLayout.switchState(CONTENT);
+        LogUtils.i(TAG, "wxArticleBeanList==" + wxArticleBeanList);
+        mMainStateLayout.switchState(StateLayout.State.CONTENT);
         pagerFragmentAdapter = new PagerFragmentAdapter(getChildFragmentManager(), wxArticleBeanList);
         mViewPager.setAdapter(pagerFragmentAdapter);
         mTab.setupWithViewPager(mViewPager);
@@ -116,6 +124,21 @@ public class WxArticleFragment extends BaseMvpFragment<WxArticlePresenter> imple
 
     @Override
     public void setLoadingFail(String fail) {
-        mStateLayout.switchState(ERROR);
+        mMainStateLayout.switchState(StateLayout.State.ERROR);
+    }
+
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mUnbinder != null) {
+            mUnbinder.unbind();
+        }
     }
 }

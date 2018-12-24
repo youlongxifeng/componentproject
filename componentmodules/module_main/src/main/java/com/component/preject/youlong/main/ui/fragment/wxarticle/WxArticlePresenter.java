@@ -25,7 +25,7 @@ public class WxArticlePresenter extends WxArticleContract.Presenter {
     void getWxTabs() {
         DisposableObserver<List<WxArticleBean>> disposableObserver = getwxChapters();
         mModel.wxChapters()
-                .compose(MainRxSchedulers.combine())
+                .compose(MainRxSchedulers.<List<WxArticleBean>>combine())
                 .subscribe(disposableObserver);
 
         addSubscribe(disposableObserver);

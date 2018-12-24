@@ -47,7 +47,7 @@
             app:layout_constraintLeft_toLeftOf="parent"-->
 
     <com.tuacy.stateswitch.StateLayout
-            android:id="@+id/state_layout_display"
+            android:id="@+id/main_state_layout_display"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/dp_10"

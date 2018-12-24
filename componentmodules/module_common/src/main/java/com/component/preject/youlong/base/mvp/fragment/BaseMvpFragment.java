@@ -27,7 +27,7 @@ public abstract class BaseMvpFragment<P extends BasePresenter> extends SupportFr
     protected P mPresenter;
     @Nullable
     protected BaseMvpActivity mBaseActivity;
-    Unbinder mUnbinder;
+    public Unbinder mUnbinder;
 
 
     @Override
