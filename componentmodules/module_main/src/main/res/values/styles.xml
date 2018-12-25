@@ -11,5 +11,8 @@
         <item name="android:textColor">@color/color_999999</item>
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
-
+    <!--搜索栏 光标颜色-->
+    <style name="EditText" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorAccent">@color/white</item>
+    </style>
 </resources>

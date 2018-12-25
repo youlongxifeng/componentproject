@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
-
-    <TextView
-            android:id="@+id/text_logon"
-            android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:text="首页"
-              android:gravity="center"
-              android:textSize="@dimen/dp_72"
-    />
-</android.support.constraint.ConstraintLayout>
+              android:orientation="vertical"
+>
+    <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="false"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:elevation="0dp">
+
+        <include layout="@layout/common_toolbar" />
+    </android.support.design.widget.AppBarLayout>
+    <com.tuacy.stateswitch.StateLayout
+            android:id="@+id/home_state_layout_display"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg_gray"
+            app:state_content_layout="@layout/view_swiperefresh_recycler_content_view"
+    >
+    </com.tuacy.stateswitch.StateLayout>
+
+</LinearLayout>

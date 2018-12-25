@@ -7,4 +7,8 @@
     <color name="color_404450">#404450</color>
     <color name="color_999999">#999999</color>
     <color name="color_f44336">#f44336</color>
+    <color name="text_dark">#878787</color>
+    <color name="green">#3ddd62</color>
+    <color name="homepage_color">#484848</color>
+    <color name="black_40">#4000</color>
 </resources>

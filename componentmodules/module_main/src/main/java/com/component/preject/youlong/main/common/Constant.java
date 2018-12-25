@@ -9,4 +9,6 @@ public class Constant {
     public interface WanAndroidUrl {
         String BASE_URL = "http://www.wanandroid.com/";
     }
+
+
 }

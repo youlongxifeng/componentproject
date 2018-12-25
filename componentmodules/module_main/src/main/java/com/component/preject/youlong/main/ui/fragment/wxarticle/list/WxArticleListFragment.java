@@ -106,7 +106,7 @@ public class WxArticleListFragment extends BaseMvpFragment<WxArticleListPresente
 
     @Override
     public void setLoadMoreFail(String fail) {
-        mAdapter.loadMoreFail();
+        mAdapter.loadMoreFail();//加载更多失败
     }
 
 

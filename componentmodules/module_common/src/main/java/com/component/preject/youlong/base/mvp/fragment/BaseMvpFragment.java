@@ -59,6 +59,8 @@ public abstract class BaseMvpFragment<P extends BasePresenter> extends SupportFr
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(getlayoutId(), container, false);
         mUnbinder = ButterKnife.bind(this, view);
+        //在fragment中使用oncreateOptionsMenu时需要在onCrateView中添加此方法，否则不会调用
+        setHasOptionsMenu(true);
         return view;
     }
 
@@ -76,7 +78,7 @@ public abstract class BaseMvpFragment<P extends BasePresenter> extends SupportFr
         if (mPresenter != null) {
             mPresenter.detachView();
         }
-        if(mUnbinder!=null){
+        if (mUnbinder != null) {
             mUnbinder.unbind();
         }
     }

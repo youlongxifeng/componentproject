@@ -74,6 +74,7 @@ dependencies {
     api deps.permission
     api deps.utils
     api deps.glide
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
 
     //view
     api deps.photo_view
@@ -88,6 +89,9 @@ dependencies {
     //数据库
     api 'org.greenrobot:greendao:3.2.2'
     api 'org.greenrobot:greendao-generator:3.2.2'
+
+    //首页banner最新版本
+    api 'com.youth.banner:banner:1.4.10'
 
     //annotationProcessor
     annotationProcessor deps.dagger.android_support_compiler

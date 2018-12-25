@@ -11,7 +11,7 @@ versions.support = "28.0.0"
 versions.multidex = "1.0.2"
 versions.constraint_layout = "1.0.2"
 versions.dagger = "2.11"
-versions.glide = "3.8.0"
+versions.glide = "4.8.0"
 versions.rxjava2 = "2.1.7"
 versions.rx_android = "2.0.1"
 versions.retrofit2_rxjava2_adapter = "1.0.0"
@@ -110,7 +110,7 @@ deps.butterknife_compiler = "com.jakewharton:butterknife-compiler:$versions.butt
 ext.deps = deps
 
 def build_versions = [:]
-build_versions.min_sdk = 16
+build_versions.min_sdk = 17
 //编译SDK的版本
 build_versions.target_sdk = 28
 //构建工作的版本

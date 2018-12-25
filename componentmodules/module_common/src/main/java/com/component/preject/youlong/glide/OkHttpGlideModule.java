@@ -7,13 +7,16 @@ package com.component.preject.youlong.glide;
  */
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.GlideBuilder;
+import com.bumptech.glide.Registry;
 import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.load.engine.bitmap_recycle.LruBitmapPool;
 import com.bumptech.glide.load.engine.cache.LruResourceCache;
 import com.bumptech.glide.load.engine.cache.MemorySizeCalculator;
 import com.bumptech.glide.module.GlideModule;
+import com.bumptech.glide.module.LibraryGlideModule;
 
 /**
  * A {@link GlideModule} implementation to replace Glide's default
@@ -26,9 +29,9 @@ import com.bumptech.glide.module.GlideModule;
  * {@link GlideModule}.
  * </p>
  */
-public class OkHttpGlideModule implements GlideModule {
+public class OkHttpGlideModule extends LibraryGlideModule {
 
-    @Override
+  /*  @Override
     public void applyOptions(Context context, GlideBuilder builder) {
         builder.setDecodeFormat(DecodeFormat.PREFER_ARGB_8888);
 
@@ -41,21 +44,12 @@ public class OkHttpGlideModule implements GlideModule {
 
         builder.setMemoryCache(new LruResourceCache(customMemoryCacheSize));
         builder.setBitmapPool(new LruBitmapPool(customBitmapPoolSize));
-    }
+    }*/
+
 
     @Override
-    public void registerComponents(Context context, Glide glide) {
-//        HttpsUtil.SSLParams sslParams = HttpsUtil.getSslSocketFactory(BaseApplication.context, null, , "");
-//        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-//                .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
-//                .hostnameVerifier(new HostnameVerifier() {
-//                    @Override
-//                    public boolean verify(String hostname, SSLSession session) {
-//                        return true;
-//                    }
-//                })
-//                .build();
-//        glide.register(GlideUrl.class, InputStream.class, new OkHttpUrlLoader.Factory(okHttpClient));
+    public void registerComponents(@NonNull Context context, @NonNull Glide glide, @NonNull Registry registry) {
+
     }
 }
 
