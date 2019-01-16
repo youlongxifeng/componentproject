@@ -13,4 +13,8 @@ public class HttpClientUtils {
     public static WanAndroidApi getCommonHttp(){
         return (WanAndroidApi) ApiFactory.getInstance().create(WanAndroidApi.class, Constant.WanAndroidUrl.BASE_URL);
     }
+
+    public static MovieApiService getMovieCommonHttp(){
+        return (MovieApiService) ApiFactory.getInstance().create(MovieApiService.class, Constant.MovieUrl.BASE_URL);
+    }
 }

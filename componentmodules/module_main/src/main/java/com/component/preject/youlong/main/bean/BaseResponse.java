@@ -8,8 +8,10 @@ import java.io.Serializable;
  * @description: （添加一句描述）
  */
 public class BaseResponse<T> implements Serializable {
-    public final static int CODE_SUCCESS0 = 0;     // 服务端返回码，成功（兼容以前 api）
-    public final static int CODE_SUCCESS = 200;     // 服务端返回码，成功
+    /** 服务端返回码，成功（兼容以前 api）*/
+    public final static int CODE_SUCCESS0 = 0;
+    /** 服务端返回码，成功*/
+    public final static int CODE_SUCCESS = 200;
     private int errorCode;
     private String errorMsg;
     private T data;

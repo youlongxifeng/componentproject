@@ -34,14 +34,17 @@ public class HttpClient {
                 .connectTimeout(12, TimeUnit.SECONDS)
                 .writeTimeout(12, TimeUnit.SECONDS)
                 .writeTimeout(12, TimeUnit.SECONDS)
-                .cookieJar(new CookiesManager())//在OkHttpClient创建时，传入这个CookieJar的实现，就能完成对Cookie的自动管理了
-                .addNetworkInterceptor(new NetworkInterceptor())// 将有网络拦截器当做网络拦截器添加
+                //在OkHttpClient创建时，传入这个CookieJar的实现，就能完成对Cookie的自动管理了
+                .cookieJar(new CookiesManager())
+                // 将有网络拦截器当做网络拦截器添加
+                .addNetworkInterceptor(new NetworkInterceptor())
                 .addInterceptor(loggingInterceptor)
                 .cache(cache)
                 .build();
         Retrofit.Builder builder = new Retrofit.Builder();
         builder.client(mHttpClient);
-        builder.baseUrl(apiUrl);//设置远程地址
+        //设置远程地址
+        builder.baseUrl(apiUrl);
         builder.addConverterFactory(GsonConverterFactory.create());
         builder.addCallAdapterFactory(RxJava2CallAdapterFactory.create());
         return builder;

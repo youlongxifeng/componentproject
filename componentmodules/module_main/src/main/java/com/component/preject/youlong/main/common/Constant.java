@@ -10,5 +10,8 @@ public class Constant {
         String BASE_URL = "http://www.wanandroid.com/";
     }
 
+    public interface MovieUrl {
+        String BASE_URL = "http://123.207.150.253/";
+    }
 
 }

@@ -8,7 +8,7 @@ import retrofit2.Retrofit;
  * @Time: 2018 2018/12/6 16:33
  * @description: （添加一句描述）
  */
-public class ApiFactory<T>  {
+public class ApiFactory<T> {
     private volatile static ApiFactory apiEngine;
     private Retrofit retrofit;
 
@@ -59,16 +59,25 @@ public class ApiFactory<T>  {
      * }
      */
 
-    private    T commonApi;
+    private T commonApi;
 
     public T create(Class<T> clazz, String type) {
         switch (type) {
             case Constant.WanAndroidUrl.BASE_URL:
-                if (commonApi == null) {
+              //  if (commonApi == null) {
                     synchronized (ApiFactory.class) {
                         commonApi = HttpClient.getBuilder(type).build().create(clazz);
                     }
-                }
+               // }
+                break;
+            case Constant.MovieUrl.BASE_URL:
+               //* if (commonApi == null) {*/
+                    synchronized (ApiFactory.class) {
+                        commonApi = HttpClient.getBuilder(type).build().create(clazz);
+                    }
+                //}
+                break;
+            default:
                 break;
         }
         return commonApi;

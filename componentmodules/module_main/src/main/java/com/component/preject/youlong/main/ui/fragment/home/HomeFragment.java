@@ -207,7 +207,8 @@ public class HomeFragment extends BaseMvpFragment<HomePagePresenter> implements 
         mRecyclerView.setAdapter(mHomePageAdapter);
         initbannerView();
         mHomePageAdapter.addHeaderView(bannerView);
-        mHomePageAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_BOTTOM);//加载显示动画
+        //加载显示动画
+        mHomePageAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_BOTTOM);
         mHomePageAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
             public void onLoadMoreRequested() {
