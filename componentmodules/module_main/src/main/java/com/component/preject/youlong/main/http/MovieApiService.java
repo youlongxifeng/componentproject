@@ -23,4 +23,7 @@ import java.util.List;
 public interface MovieApiService {
     @GET("ygcms/getClassVideo.php")
     Observable<MovieResponse<List<DataBean>>> getBtRecomend(@Query("page") int page, @Query("pagesize") int pagesize);//获取推荐
+
+    @GET("ygcms/getSeris.php")
+    Observable<MovieResponse<List<DataBean>>> getSerisUpdate(@Query("page")int page, @Query("pagesize")int pagesize);
 }

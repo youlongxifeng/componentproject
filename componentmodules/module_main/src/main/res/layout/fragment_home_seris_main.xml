@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+>
+    <com.tuacy.stateswitch.StateLayout
+            android:id="@+id/movie_state_layout_display"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg_gray"
+            app:state_content_layout="@layout/view_swiperefresh_recycler_content_view"
+    >
+    </com.tuacy.stateswitch.StateLayout>
+
+</LinearLayout>

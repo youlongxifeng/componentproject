@@ -108,4 +108,6 @@ dependencies {
 
     //加载状态
     api project(':thirdpartyibraries:stateswitch')
+    //
+    api project(':thirdpartyibraries:FlycoTabLayout_Lib')
 }

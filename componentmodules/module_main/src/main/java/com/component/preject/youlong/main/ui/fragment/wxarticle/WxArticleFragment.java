@@ -40,7 +40,6 @@ public class WxArticleFragment extends BaseMvpFragment<WxArticlePresenter> imple
     ViewPager mViewPager;
     @BindView(R2.id.main_state_layout_display)
     StateLayout mMainStateLayout;
-   // Unbinder mUnbinder;
     private PagerFragmentAdapter pagerFragmentAdapter;
 
 
