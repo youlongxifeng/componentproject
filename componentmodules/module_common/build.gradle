@@ -50,6 +50,7 @@ dependencies {
     api deps.rx_android
     api deps.rxjava2
     api deps.retrofit2_rxjava2_adapter
+    api deps.rxjava2_adapter
     //api 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
     api deps.retrofit.runtime
     api deps.retrofit.gson

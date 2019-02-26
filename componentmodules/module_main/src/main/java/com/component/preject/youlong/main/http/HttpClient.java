@@ -4,7 +4,7 @@ import com.component.preject.youlong.base.BaseApplication;
 import com.component.preject.youlong.http.cookies.CookiesManager;
 import com.component.preject.youlong.http.interceptor.HttpLoggingInterceptor;
 import com.component.preject.youlong.main.http.interceptor.NetworkInterceptor;
-import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
