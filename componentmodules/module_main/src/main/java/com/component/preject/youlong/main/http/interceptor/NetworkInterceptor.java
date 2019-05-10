@@ -53,20 +53,7 @@ public class NetworkInterceptor implements Interceptor {
         if (cookie != null) {
             SharedPrefercesUtils.saveCookiePreference(BaseApplication.getContext().getBaseContext(), cookie);
         }*/
-        LogUtils.e(TAG, "isSuccessful==="+ response.isSuccessful()+"  response="+response);
-        if (response.isSuccessful()) {
-            LogUtils.e(TAG, "networkResponse==="+ response.networkResponse());
-            LogUtils.e(TAG, "cacheResponse==="+ response.cacheResponse());
-            if (response.networkResponse() != null) {
-                LogUtils.e(TAG, "network==="+ response.body().string().length() + "");
-            } else if (response.cacheResponse() != null) {
-                if (isConnected) {
-                    LogUtils.e(TAG, "cache=="+ response.body().string().length() + "");
-                } else {
-                    LogUtils.e(TAG, "cache(no network)==="+ response.body().string().length() + "");
-                }
-            }
-        }
+
         if (isConnected) {
             // 有网络时，设置超时为0
             int maxStale = 600;
@@ -81,6 +68,20 @@ public class NetworkInterceptor implements Interceptor {
                     .header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale)
                     // .removeHeader("Pragma")
                     .build();
+        }
+        LogUtils.e(TAG, "isSuccessful==="+ response.isSuccessful()+"  response="+response);
+        if (response.isSuccessful()) {
+            LogUtils.e(TAG, "networkResponse==="+ response.networkResponse());
+            LogUtils.e(TAG, "cacheResponse==="+ response.cacheResponse());
+            if (response.networkResponse() != null) {
+                LogUtils.e(TAG, "network==="+ response.body().string().length() + "");
+            } else if (response.cacheResponse() != null) {
+                if (isConnected) {
+                    LogUtils.e(TAG, "cache=="+ response.body().string().length() + "");
+                } else {
+                    LogUtils.e(TAG, "cache(no network)==="+ response.body().string().length() + "");
+                }
+            }
         }
 
         return response;
