@@ -13,6 +13,7 @@ import butterknife.Unbinder;
 import com.component.preject.youlong.base.mvp.activity.BaseMvpActivity;
 import com.component.preject.youlong.base.mvp.BasePresenter;
 import com.component.preject.youlong.base.mvp.BaseView;
+import com.component.preject.youlong.eventbus.EventBusHelper;
 import me.yokeyword.fragmentation.SupportFragment;
 
 /**
@@ -51,6 +52,7 @@ public abstract class BaseMvpFragment<P extends BasePresenter> extends SupportFr
         if (getActivity() instanceof BaseMvpActivity) {
             mBaseActivity = (BaseMvpActivity) getActivity();
         }
+        //EventBusHelper.register(this);
     }
 
     @Nullable
@@ -71,6 +73,12 @@ public abstract class BaseMvpFragment<P extends BasePresenter> extends SupportFr
         initDate();
     }
 
+
+    @Override
+    public void onStop() {
+        super.onStop();
+       // EventBusHelper.unregister(this);
+    }
 
     @Override
     public void onDestroy() {

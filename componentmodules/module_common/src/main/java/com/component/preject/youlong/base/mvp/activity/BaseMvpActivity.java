@@ -13,6 +13,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import com.component.preject.youlong.base.mvp.BasePresenter;
 import com.component.preject.youlong.base.mvp.BaseView;
+import com.component.preject.youlong.eventbus.EventBusHelper;
 import me.yokeyword.fragmentation.SupportActivity;
 import me.yokeyword.fragmentation.SupportFragment;
 
@@ -39,6 +40,7 @@ public abstract class BaseMvpActivity <P extends BasePresenter> extends SupportA
         }
         initView();
         initDate();
+       // EventBusHelper.unregister(this);
     }
 
 
@@ -65,6 +67,12 @@ public abstract class BaseMvpActivity <P extends BasePresenter> extends SupportA
     public void setContentView(@LayoutRes int layoutResID) {
         super.setContentView(layoutResID);
 
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+       // EventBusHelper.unregister(this);
     }
 
     public abstract P setPresenter();

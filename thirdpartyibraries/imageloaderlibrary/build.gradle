@@ -1,0 +1,40 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion build_versions.target_sdk
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation deps.support.app_compat
+
+
+    // RxJava and retrofit
+    implementation deps.rx_android
+    implementation deps.rxjava2
+    implementation deps.retrofit2_rxjava2_adapter
+    implementation deps.rxjava2_adapter
+    //api 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.gson
+    implementation deps.persistent_cookie
+    implementation 'com.jakewharton:disklrucache:2.0.2'
+}

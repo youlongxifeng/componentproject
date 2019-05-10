@@ -24,16 +24,8 @@ public class NetworkInterceptor implements Interceptor {
 
         Request requestBuilder = chain.request();
         Request.Builder builder = requestBuilder.newBuilder();
-      /*  UserBean userBean = UserInfoManager.getInstance().getUserBean();
-
-        if (userBean != null) {
-            builder.addHeader(Constant.FX_SIGN, userBean.getUserid())//用户名
-                    .addHeader(Constant.FX_TOKEN, userBean.getAccessToken());//token
-        }
-        builder.addHeader(Constant.FX_DEVICE_TYPE, Constant.FX_MULTIPLE)//设备类型;
-                .addHeader(Constant.FX_DEVICE_ID, SystemDeviceParameter.getDeviceId())//设备ID
-                .addHeader(Constant.FX_TIMESTAMP, String.valueOf(System.currentTimeMillis()));//时间戳*/
         boolean isConnected = NetWorkUtil.isConnected(BaseApplication.getContext());
+        LogUtils.i(TAG, "isConnected=" + isConnected);
         //无网络时强制使用缓存
         if (!isConnected) {
             builder.cacheControl(CacheControl.FORCE_CACHE)
@@ -46,16 +38,38 @@ public class NetworkInterceptor implements Interceptor {
         } else if ("GET".equalsIgnoreCase(method)) {
             LogUtils.i(TAG, "GET 请求方式  url=" + requestBuilder.url());
         }
-        Request request = builder.build();
-        LogUtils.i("TAG", "builder===" + request.headers().size() + "  ==" + request.headers().toString());
+        Request request = null;
+        //无网络时强制使用缓存
+        if (!isConnected) {
+            builder.cacheControl(CacheControl.FORCE_CACHE)
+                    .build();
+        }else {
+           request = builder.build();
+
+        }
+        LogUtils.i(TAG,  "builder===" + request.headers().size() + "  ==" + request.headers().toString());
         Response response = chain.proceed(request);
        /* String cookie = response.header("Set-Cookie");
         if (cookie != null) {
             SharedPrefercesUtils.saveCookiePreference(BaseApplication.getContext().getBaseContext(), cookie);
         }*/
+        LogUtils.e(TAG, "isSuccessful==="+ response.isSuccessful()+"  response="+response);
+        if (response.isSuccessful()) {
+            LogUtils.e(TAG, "networkResponse==="+ response.networkResponse());
+            LogUtils.e(TAG, "cacheResponse==="+ response.cacheResponse());
+            if (response.networkResponse() != null) {
+                LogUtils.e(TAG, "network==="+ response.body().string().length() + "");
+            } else if (response.cacheResponse() != null) {
+                if (isConnected) {
+                    LogUtils.e(TAG, "cache=="+ response.body().string().length() + "");
+                } else {
+                    LogUtils.e(TAG, "cache(no network)==="+ response.body().string().length() + "");
+                }
+            }
+        }
         if (isConnected) {
             // 有网络时，设置超时为0
-            int maxStale = 0;
+            int maxStale = 600;
             response.newBuilder()
                     .header("Cache-Control", "public, max-age=" + maxStale)
                     // .removeHeader("Pragma")// 清除头信息，因为服务器如果不支持，会返回一些干扰信息，不清除下面无法生效

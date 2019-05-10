@@ -111,4 +111,5 @@ dependencies {
     api project(':thirdpartyibraries:stateswitch')
     //
     api project(':thirdpartyibraries:FlycoTabLayout_Lib')
+    api project(':thirdpartyibraries:imageloaderlibrary')
 }

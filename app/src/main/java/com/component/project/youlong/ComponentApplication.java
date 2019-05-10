@@ -2,6 +2,7 @@ package com.component.project.youlong;
 
 
 import com.component.preject.youlong.base.BaseApplication;
+import com.component.preject.youlong.eventbus.EventBusHelper;
 import com.component.project.youlong.bean.DaoMaster;
 import com.component.project.youlong.bean.DaoSession;
 import org.greenrobot.greendao.database.Database;
@@ -33,6 +34,7 @@ public class ComponentApplication extends BaseApplication {
         // Database db = helper.getEncryptedWritableDb("encryption-key");
 
         daoSession = new DaoMaster(db).newSession();
+       // EventBusHelper.init();
     }
 
     public DaoSession getDaoSession() {

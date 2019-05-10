@@ -19,6 +19,7 @@
             <option value="$PROJECT_DIR$/thirdpartyibraries/fragmentation" />
             <option value="$PROJECT_DIR$/thirdpartyibraries/fragmentation_core" />
             <option value="$PROJECT_DIR$/thirdpartyibraries/fragmentation_swipeback" />
+            <option value="$PROJECT_DIR$/thirdpartyibraries/imageloaderlibrary" />
             <option value="$PROJECT_DIR$/thirdpartyibraries/recyclerviewadapterlibrary" />
             <option value="$PROJECT_DIR$/thirdpartyibraries/stateswitch" />
           </set>

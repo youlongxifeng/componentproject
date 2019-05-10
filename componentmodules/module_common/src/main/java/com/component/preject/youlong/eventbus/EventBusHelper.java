@@ -25,7 +25,7 @@ public class EventBusHelper {
     /** EventBus 索引类
      *
      */
-    private static final SubscriberInfoIndex SUBSCRIBE_INDEX = new MyEventBusIndex();
+    private static final SubscriberInfoIndex SUBSCRIBE_INDEX = null;// new MyEventBusIndex();
 
     /** 这个类是否需要注册 EventBus
      *
@@ -40,7 +40,7 @@ public class EventBusHelper {
      */
     public static void init() {
         EventBus.builder()
-                // 使用 Apt 插件
+                // 使用 Apt 插件 强制使用反射，即使生成了索引(默认值:false)
                 .ignoreGeneratedIndex(false)
                 // 添加索引类
                 .addIndex(SUBSCRIBE_INDEX)

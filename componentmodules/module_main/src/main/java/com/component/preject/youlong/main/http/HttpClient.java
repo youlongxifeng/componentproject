@@ -4,6 +4,7 @@ import com.component.preject.youlong.base.BaseApplication;
 import com.component.preject.youlong.http.cookies.CookiesManager;
 import com.component.preject.youlong.http.interceptor.HttpLoggingInterceptor;
 import com.component.preject.youlong.main.http.interceptor.NetworkInterceptor;
+import com.component.preject.youlong.utils.LogUtils;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
@@ -29,17 +30,18 @@ public class HttpClient {
         int size = 1024 * 1024 * 100;
         File cacheFile = new File(BaseApplication.getContext().getCacheDir(), "OkHttpCache");
         Cache cache = new Cache(cacheFile, size);
-
+        LogUtils.i("HttpClient","cacheFile==="+cacheFile.getAbsolutePath());
         OkHttpClient mHttpClient = new OkHttpClient.Builder()
                 .connectTimeout(12, TimeUnit.SECONDS)
                 .writeTimeout(12, TimeUnit.SECONDS)
                 .writeTimeout(12, TimeUnit.SECONDS)
                 //在OkHttpClient创建时，传入这个CookieJar的实现，就能完成对Cookie的自动管理了
                 .cookieJar(new CookiesManager())
+                .cache(cache)
                 // 将有网络拦截器当做网络拦截器添加
                 .addNetworkInterceptor(new NetworkInterceptor())
                 .addInterceptor(loggingInterceptor)
-                .cache(cache)
+
                 .build();
         Retrofit.Builder builder = new Retrofit.Builder();
         builder.client(mHttpClient);
