@@ -59,14 +59,14 @@ public class NetworkInterceptor implements Interceptor {
             int maxStale = 600;
             response.newBuilder()
                     .header("Cache-Control", "public, max-age=" + maxStale)
-                    // .removeHeader("Pragma")// 清除头信息，因为服务器如果不支持，会返回一些干扰信息，不清除下面无法生效
+                      .removeHeader("Pragma")// 清除头信息，因为服务器如果不支持，会返回一些干扰信息，不清除下面无法生效
                     .build();
         } else {
             // 无网络时，设置超时为3周
             int maxStale = 60 * 60 * 24 * 21;
             response.newBuilder()
                     .header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale)
-                    // .removeHeader("Pragma")
+                     .removeHeader("Pragma")
                     .build();
         }
         LogUtils.e(TAG, "isSuccessful==="+ response.isSuccessful()+"  response="+response);
